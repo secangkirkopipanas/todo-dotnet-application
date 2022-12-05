@@ -1,0 +1,26 @@
+version: '3'
+services:
+  dotnet:
+    build: 
+      context: ./docker/dotnet
+      dockerfile: Dockerfile
+    image: 'quay.io/kahlai/dotnetsdk:7.0'
+    # command:
+    #   - "tail"
+    #   - "-f"
+    #   - "/dev/null"
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/projects/todo-dotnet
+  mssql:
+    image: 'quay.io/kahlai/mssql:2022-RTM-rhel-8.5'
+    ports:
+      - 1433:1433
+    volumes:
+      - ./data:/var/opt/mssql/data
+    environment:
+      - ACCEPT_EULA='Y'
+      - MSSQL_SA_PASSWORD=Zxcvbnm<>1
+      - MSSQL_PID=Express
+      - TZ='Asia/Singapore'
