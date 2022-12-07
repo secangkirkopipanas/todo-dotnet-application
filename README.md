@@ -17,6 +17,7 @@ Run migration script for first time to create database and tables.
 docker exec -it todo-dotnet_dotnet_1 bash
 
 #run this inside container to run migration script
+dotnet tool install --global dotnet-ef
 dotnet ef database update
 
 #run this inside container
