@@ -1,4 +1,4 @@
-# TODO Demo Application
+# TODO .NET Application
 
 This is developer experience demo app using dotnet 7.0.
 
